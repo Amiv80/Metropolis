@@ -7,7 +7,7 @@
         body {
             font-family: Arial, Helvetica, sans-serif;
             font-size: 16px;
-            background-color: #f2f2f2;
+            background-color: #ffffff;
         }
 
         h1 {
@@ -17,10 +17,11 @@
         form {
             width: 300px;
             margin: 0 auto;
-            background-color: #fff;
+            background-color: ghostwhite;
             padding: 20px;
             border-radius: 4px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
         }
 
         label {
@@ -59,9 +60,9 @@
         .result {
             width: 300px;
             margin: 20px auto;
-            background-color: #fff;
+            background-color:snow;
             padding: 20px;
-            border-radius: 4px;
+            border-radius: 10px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
@@ -72,14 +73,17 @@
 
         .result p {
             margin-bottom: 10px;
+            font-size: 18px;
         }
 
         .tutorial {
-            margin-bottom: 40px;
-            background-color: #fff;
-            border-radius: 4px;
+            margin-bottom: 20px;
+            background-color: azure;
+            border-radius: 15px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             padding: 20px;
+            font-size: 18px;
+            font-family: 'Times New Roman';
         }
         .container {
             max-width: 800px;
@@ -110,77 +114,78 @@
     </style>
 </head>
 <body>
+    <h1>Metropolis Score Calculator</h1>
+    <form method="post">
+        {% csrf_token %}
+
+            <label for="goal_1">Goal card 1:</label>
+            <input type="number" id="goal_1" name="goal_1" required>
+        <br>
+            <label for="goal_2">Goal card 2:</label>
+            <input type="number" id="goal_2" name="goal_2" required>
+        <br>
+            <label for="goal_3">Goal card 3:</label>
+            <input type="number" id="goal_3" name="goal_3" required>
+        <br>
+
+            <label for="block_park" style="color:rgb(0, 238, 0)">
+                Largest Park Block:
+            </label>
+            <input type="number" id="block_park" name="block_park" required>
+        <br>
+            <label for="block_residential" style="color: coral;">
+                Largest Residential Block:
+            </label>
+            <input type="number" id="block_residential" name="block_residential" required>
+        <br>
+            <label for="block_commercial" style="color: deepskyblue;">
+                Largest Commercial Block:
+            </label>
+            <input type="number" id="block_commercial" name="block_commercial" required>
+        <br>
+            <label for="block_industrial" style="color: rgb(114, 114, 114);">
+                Largest Industrial Block:
+            </label>
+            <input type="number" id="block_industrial" name="block_industrial" required>
+
+        <br>
+            <label for="goal_score_1">Goal card 1 Score:</label>
+            <input type="number" id="goal_score_1" name="goal_score_1" required>
+        <br>
+            <label for="goal_score_2">Goal card 2 Score:</label>
+            <input type="number" id="goal_score_2" name="goal_score_2" required>
+        <br>
+            <label for="goal_score_3">Goal card 3 Score:</label>
+            <input type="number" id="goal_score_3" name="goal_score_3" required>
+        <br>
+            <label for="roads">
+                Number of Roads:
+            </label>
+            <input type="number" id="roads" name="roads" required>
+        <br>
+            <input type="submit" value="Calculate">
+    </form>
+
+    {% if goal and total_scores %}
+        <div class="result">
+            <h2 style="color:orangered;">
+                Result:
+            </h2>
+            <p>
+                Total Score Goals: {{ goal }}
+            </p>
+            <p>
+                Your Total Scores: {{ total_scores }}
+            </p>
+            <p style="font-weight: bold; color: indigo;">
+                {{ result }}
+            </p>
+        </div>
+    {% endif %}
+
     <div class="container">
-        <h1>Metropolis Score Calculator</h1>
-        <form method="post">
-            {% csrf_token %}
-
-                <label for="goal_1">Goal card 1:</label>
-                <input type="number" id="goal_1" name="goal_1" required>
-            <br>
-                <label for="goal_2">Goal card 2:</label>
-                <input type="number" id="goal_2" name="goal_2" required>
-            <br>
-                <label for="goal_3">Goal card 3:</label>
-                <input type="number" id="goal_3" name="goal_3" required>
-            <br>
-
-                <label for="block_park" style="color:rgb(0, 238, 0)">
-                    Largest Park Block:
-                </label>
-                <input type="number" id="block_park" name="block_park" required>
-            <br>
-                <label for="block_residential" style="color: coral;">
-                    Largest Residential Block:
-                </label>
-                <input type="number" id="block_residential" name="block_residential" required>
-            <br>
-                <label for="block_commercial" style="color: deepskyblue;">
-                    Largest Commercial Block:
-                </label>
-                <input type="number" id="block_commercial" name="block_commercial" required>
-            <br>
-                <label for="block_industrial" style="color: rgb(114, 114, 114);">
-                    Largest Industrial Block:
-                </label>
-                <input type="number" id="block_industrial" name="block_industrial" required>
-
-            <br>
-                <label for="goal_score_1">Goal card 1 Score:</label>
-                <input type="number" id="goal_score_1" name="goal_score_1" required>
-            <br>
-                <label for="goal_score_2">Goal card 2 Score:</label>
-                <input type="number" id="goal_score_2" name="goal_score_2" required>
-            <br>
-                <label for="goal_score_3">Goal card 3 Score:</label>
-                <input type="number" id="goal_score_3" name="goal_score_3" required>
-            <br>
-                <label for="roads">
-                    Number of Roads:
-                </label>
-                <input type="number" id="roads" name="roads" required>
-            <br>
-                <input type="submit" value="Calculate">
-        </form>
-
-        {% if goal and total_scores %}
-            <div class="result">
-                <h2 style="color:orangered;">
-                    Result:
-                </h2>
-                <p>
-                    Total Score Goals: {{ goal }}
-                </p>
-                <p>
-                    Your Total Scores: {{ total_scores }}
-                </p>
-                <p style="font-weight: bold; color: indigo;">
-                    {{ result }}
-                </p>
-            </div>
-        {% endif %}
         <div class="tutorial">
-            <h2 style="text-align: center;">Tutorial: How to Play</h2>
+            <h2 style="text-align: center;">How to Play</h2>
 
             <h3>Goal Cards</h3>
             <p>Enter the numbers on your goal cards in the corresponding input fields. There are three goal cards in total.</p>
