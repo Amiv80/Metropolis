@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Overview</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 16px;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            perspective: 1000px;
+        }
+
+        .box {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            line-height: 1.5;
+            transform-style: preserve-3d;
+            animation: rotate 4s linear;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotateY(0deg) rotateX(0deg);
+            }
+            100% {
+                transform: rotateY(360deg) rotateX(360deg);
+            }
+        }
+
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
+        }
+
+        .home-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #ff0000;
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .home-button:hover {
+            transform: scale(1.1);
+        }
+
+        .BGG-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #000000;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: bold;
+            border: 4px solid #ff9900;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            animation: border-rotation 3s infinite linear;
+        }
+
+        @keyframes border-rotation {
+            0% {
+                border-color: #ff9900;
+            }
+            25% {
+                border-color: #00ff00;
+            }
+            50% {
+                border-color: #ff00ff;
+            }
+            75% {
+                border-color: #ffff00;
+            }
+            100% {
+                border-color: #ff9900;
+            }
+        }
+
+        .BGG-button:hover {
+            transform: scale(1.1);
+            animation-play-state: paused;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <a href="/" style="text-decoration: none;">
+        <button class="home-button">Home</button>
+    </a>
+
+    <div class="container">
+        <div class="box">
+            <h2 style="text-align: center;">Game Overview</h2>
+            <p><em>Jackhammers chattering, trucks beeping, engines roaring, the sounds of construction are everywhere.
+                    Sprawlopolis is growing and YOU are in charge of it all. The last team of planners couldn't cut it, so the city turned to your team, the best of the best.
+                    If anyone can turn this tiny town into a thriving civic center it's you.
+            </em></p>
+            <p>In Sprawlopolis, 1-4 players work together to build a new city from the ground up.
+                Using only 18 cards and a variable scoring system, the game is never the same twice.
+                Each turn, players will play 1 card from their hand to the growing city, trying to score as many points as possible.
+                Players will have to communicate and plan without revealing their own cards in order to most efficiently develop large areas in each of the 4 zone types. 
+                Watch out though, the city hates paying for road maintenance so each road will cost you points in the end.
+                When all cards have been placed, the game ends and players see if they have met dynamically generated minimum score for their game.
+                Can you meet the demands of the officials, work with your fellow planners and build the ultimate urban wonder?
+                It’s time to find out!</p>
+        </div>
+    </div>
+    <a href="https://boardgamegeek.com/boardgame/251658/sprawlopolis" style="text-decoration: none;">
+        <button class="BGG-button">The page of this game in the BoardGameGeek</button>
+    </a>
+</body>
+</html>
