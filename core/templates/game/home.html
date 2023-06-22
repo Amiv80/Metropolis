@@ -77,35 +77,32 @@
             font-size: 18px;
         }
 
-        .header {
-        background-color: #e7f8ff;
-        padding: 20px;
-        text-align: center;
-        }
-        .header a {
-            margin-right: 10px;
-            color: #ff0000;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-            border: 2px solid #ff0000;
-            padding: 8px 12px;
-            border-radius: 8px;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .header a:hover {
+        .tutorial-button,
+        .overview-button {
+            display: inline-block;
+            margin: 20px 10px;
+            padding: 10px 20px;
             background-color: #ff0000;
             color: #ffffff;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .tutorial-button:hover,
+        .overview-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
     </style>
 </head>
 <body>
-    <div class="header">
-        <a href="{% url 'tutorial' %}" style="text-decoration: none;">Tutorial</a>
-        <a href="{% url 'overview' %}" style="text-decoration: none;">Overview</a>
-    </div>
-
     <h1>Metropolis Score Calculator</h1>
 
     <form method="post">
@@ -166,5 +163,9 @@
             <p style="font-weight: bold; color: indigo;">{{ result }}</p>
         </div>
     {% endif %}
+    <div style="text-align: center;">
+        <a href="{% url 'tutorial' %}" style="text-decoration: none;"><button class="tutorial-button">Tutorial</button></a>
+        <a href="{% url 'overview' %}" style="text-decoration: none;"><button class="overview-button">Overview</button></a>
+    </div>
 </body>
 </html>

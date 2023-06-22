@@ -44,9 +44,10 @@
             margin-bottom: 10px;
         }
 
-        .home-button {
-            display: block;
-            margin: 20px auto;
+        .home-button,
+        .overview-button {
+            display: inline-block;
+            margin: 20px;
             padding: 10px 20px;
             background-color: #ff0000;
             color: #ffffff;
@@ -56,55 +57,49 @@
             border-radius: 8px;
             cursor: pointer;
             transition: transform 0.3s;
+            text-decoration: none;
         }
-        .home-button:hover {
-            transform: scale(1.1);
+        .home-button:hover,
+        .overview-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+        
 
     </style>
 </head>
 <body>
-    <a href="/" style="text-decoration: none;">
-        <button class="home-button">Home</button>
-    </a>
 
     <div class="tutorial">
         <h2 style="text-align: center;">How to Use This Site</h2>
 
         <h3>Goal Cards</h3>
         <p>Enter the numbers on your goal cards in the corresponding input fields. There are three goal cards in total.</p>
-
         <h3>Largest Blocks</h3>
         <p>Next, input the sizes of the largest blocks in each category. Use the provided input fields to specify the sizes of your Park, Residential, Commercial, and Industrial blocks.</p>
-
         <h3>Goal Card Scores</h3>
         <p>Enter the scores you have achieved from each goal card in the respective input fields.</p>
-
         <h3>Roads</h3>
         <p>Specify the number of roads by entering the value in the designated input field.</p>
-
         <h3>Calculate</h3>
         <p>Finally, click the "Calculate" button to determine your total scores and see the result.</p>
     </div>
-
     <div class="tutorial" dir="rtl">
         <h2 style="text-align: center;">چگونه از این سایت استفاده کنم؟</h2>
-
         <h3>کارت اهداف</h3>
         <p>اعداد روی کارت اهداف خود را در بخش‌های ورودی مربوطه وارد کنید. در کل، سه کارت هدف وجود دارد.</p>
-
         <h3>بزرگترین بلوک‌</h3>
         <p>اندازه بزرگترین بلوک در هر دسته را وارد کنید. از بخش‌های ورودی مشخص شده برای بلوک‌های پارک، مسکونی، تجاری و صنعتی استفاده کنید.</p>
-
         <h3>امتیاز کارت اهداف</h3>
         <p>امتیازهایی که از هر کارت هدف به دست آورده‌اید را در بخش‌های ورودی مربوطه وارد کنید.</p>
-
         <h3>جاده</h3>
         <p>تعداد جاده‌ها را در بخش‌ مشخص شده وارد کنید.</p>
-
         <h3>محاسبه</h3>
         <p>در نهایت، برای محاسبه امتیاز کلی و مشاهده نتیجه، روی دکمه "Calculate" کلیک کنید.</p>
-
+    </div>
+    <div style="text-align: center;">
+        <a href="{% url 'overview' %}" style="text-decoration: none;"><button class="overview-button">Overview</button></a>
+        <a href="/" style="text-decoration: none;"><button class="home-button">Home</button></a>
     </div>
 </body>
 </html>
